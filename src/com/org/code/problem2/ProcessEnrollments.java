@@ -6,9 +6,12 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -58,6 +61,9 @@ public class ProcessEnrollments {
 	}
 
 	private static void processFiles(List<String> files, String datadir) {
+
+		DateFormat df = new SimpleDateFormat("yyyyMMddHHmmss");
+
 		log(String.format("No. of files to process are:%s", files.size()));
 
 		for (String fileName : files) {
@@ -84,7 +90,7 @@ public class ProcessEnrollments {
 
 				Map<String, List<Enrollee>> m1 = elist.stream().collect(Collectors.groupingBy(Enrollee::getInsCompany));
 				m1.forEach((k, v) -> {
-					String ofile = datadir + k + "_specific_enrollees.csv";
+					String ofile = datadir + k + "_specific_enrollees" + df.format(new Date()) + ".csv";
 					log("Creating file with filename:" + ofile);
 					Path path = Paths.get(ofile);
 					try (BufferedWriter writer = Files.newBufferedWriter(path)) {
