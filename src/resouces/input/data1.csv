@@ -10,3 +10,7 @@
 202,john,doe,1.2,Progressive
 300,sree10,jee,1.0,cigna
 301,john,doe,1.0,cigna
+302,john,alpha,1.0,cigna
+303,sree10,alpha,1.0,cigna
+301,john,doe,1.1,cigna
+301,john,doe,0.1,cigna

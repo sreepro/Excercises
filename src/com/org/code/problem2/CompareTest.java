@@ -15,6 +15,8 @@ public class CompareTest {
 		Enrollee e4 = new Enrollee("105", "andrew", "alpha", "1", "1");
 		Enrollee e5 = new Enrollee("106", "andrew", "beta", "1", "1");
 		Enrollee e6 = new Enrollee("104", "mark", "l10", "1", "1");
+		Enrollee e7 = new Enrollee("104", "mark", "alpha", "1", "1");
+		Enrollee e8 = new Enrollee("103", "john", "alpha", "1", "1");
 
 		list.add(e1);
 		list.add(e2);
@@ -22,11 +24,11 @@ public class CompareTest {
 		list.add(e4);
 		list.add(e5);
 		list.add(e6);
+		list.add(e7);
+		list.add(e8);
 //		Collections.sort(list, new EnrolleeSort());
 		
 		List<Enrollee> list1 = list.stream().sorted(new EnrolleeSort()).collect(Collectors.toList());
-		// .forEach(p -> System.out.println(p.getFirstName() + ":" +
-		// p.getLastName()));
 
 
 		for (Enrollee p : list1) {

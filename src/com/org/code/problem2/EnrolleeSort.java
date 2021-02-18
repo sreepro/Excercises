@@ -7,11 +7,7 @@ public class EnrolleeSort implements Comparator<Enrollee> {
 	@Override
 	public int compare(Enrollee e1, Enrollee e2) {
 		if (e1.getFirstName().compareTo(e2.getFirstName()) == 0) {
-			if (e1.getLastName().compareTo(e2.getLastName()) == 0) {
-				return e1.getVersion().compareTo(e2.getVersion());
-			} else {
 				return e1.getLastName().compareTo(e2.getLastName());
-			}
 		} else {
 			return e1.getFirstName().compareTo(e2.getFirstName());
 		}
