@@ -88,8 +88,8 @@ public class ProcessEnrollments {
 					log("Creating file with filename:" + ofile);
 					Path path = Paths.get(ofile);
 					try (BufferedWriter writer = Files.newBufferedWriter(path)) {
-						Collection<Enrollee> v1 = v.stream().collect(Collectors.groupingBy(Enrollee::getUserId,
-								Collectors.collectingAndThen(
+						Collection<Enrollee> v1 = v.stream()
+								.collect(Collectors.groupingBy(Enrollee::getUserId, Collectors.collectingAndThen(
 										Collectors.maxBy(Comparator.comparing(Enrollee::getVersion)), Optional::get)))
 								.values();
 						v1.stream().sorted(new EnrolleeSort()).collect(Collectors.toList()).forEach(enrollee -> {
